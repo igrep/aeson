@@ -108,6 +108,13 @@ module Data.Aeson.TH
     , mkParseJSON
     , mkLiftParseJSON
     , mkLiftParseJSON2
+
+    , noObjectFail
+    , valueConName
+    , parseTypeMismatch
+    , parseTypeMismatch'
+    , conNotFoundFailTaggedObject
+    , lookupFieldOmit
     ) where
 
 -- We don't have MonadFail Q, so we should use `fail` from real `Prelude`

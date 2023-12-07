@@ -72,7 +72,6 @@ library
     Data.Aeson.TH
     Data.Aeson.Types
 
-  other-modules:
     Data.Aeson.Decoding.Conversion
     Data.Aeson.Decoding.Internal
     Data.Aeson.Encoding.Builder

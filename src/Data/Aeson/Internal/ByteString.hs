@@ -5,6 +5,7 @@
 module Data.Aeson.Internal.ByteString (
     mkBS, 
     withBS,
+    unsafePackLenLiteral,
 #ifdef MIN_VERSION_template_haskell
     liftSBS,
 #endif
