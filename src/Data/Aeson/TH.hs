@@ -109,7 +109,9 @@ module Data.Aeson.TH
     , mkLiftParseJSON
     , mkLiftParseJSON2
 
+    , noMatchFail
     , noObjectFail
+    , noStringFail
     , valueConName
     , parseTypeMismatch
     , parseTypeMismatch'
