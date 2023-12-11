@@ -130,7 +130,6 @@ import qualified Data.Traversable.WithIndex as WI (TraversableWithIndex (..))
 import qualified Data.Semialign as SA
 import qualified Data.Semialign.Indexed as SAI
 import qualified GHC.Exts
-import qualified Test.QuickCheck as QC
 import qualified Witherable as W
 
 #ifdef USE_ORDEREDMAP
@@ -720,25 +719,3 @@ instance W.FilterableWithIndex Key KeyMap where
     imapMaybe = mapMaybeWithKey
 
 instance W.WitherableWithIndex Key KeyMap where
-
--------------------------------------------------------------------------------
--- QuickCheck
--------------------------------------------------------------------------------
-
--- | @since 2.0.3.0
-instance QC.Arbitrary1 KeyMap where
-    liftArbitrary a  = fmap fromList (QC.liftArbitrary (QC.liftArbitrary a))
-    liftShrink shr m = fmap fromList (QC.liftShrink (QC.liftShrink shr) (toList m))
-
--- | @since 2.0.3.0
-instance QC.Arbitrary v => QC.Arbitrary (KeyMap v) where
-    arbitrary = QC.arbitrary1
-    shrink    = QC.shrink1
-
--- | @since 2.0.3.0
-instance QC.CoArbitrary v => QC.CoArbitrary (KeyMap v) where
-    coarbitrary = QC.coarbitrary . toList
-
--- | @since 2.0.3.0
-instance QC.Function v => QC.Function (KeyMap v) where
-    function = QC.functionMap toList fromList
