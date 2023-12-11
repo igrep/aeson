@@ -118,7 +118,6 @@ import qualified Data.Text.Encoding as T
 import qualified Data.Text.Lazy as LT
 import qualified Data.Text.Short as ST
 import qualified Data.Tree as Tree
-import qualified Data.UUID.Types as UUID
 import qualified Data.Vector as V
 import qualified Data.Vector.Generic as VG
 import qualified Data.Vector.Mutable as VM
@@ -1794,18 +1793,6 @@ instance ToJSON1 Tree.Tree where
 instance (ToJSON v) => ToJSON (Tree.Tree v) where
     toJSON = toJSON1
     toEncoding = toEncoding1
-
--------------------------------------------------------------------------------
--- uuid
--------------------------------------------------------------------------------
-
-instance ToJSON UUID.UUID where
-    toJSON = toJSON . UUID.toText
-    toEncoding = E.unsafeToEncoding . EB.quote . B.byteString . UUID.toASCIIBytes
-
-instance ToJSONKey UUID.UUID where
-    toJSONKey = ToJSONKeyText (Key.fromText . UUID.toText) $
-        E.unsafeToEncoding . EB.quote . B.byteString . UUID.toASCIIBytes
 
 -------------------------------------------------------------------------------
 -- vector

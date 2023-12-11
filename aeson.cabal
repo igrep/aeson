@@ -134,7 +134,6 @@ library
     , th-abstraction        ^>=0.5.0.0  || ^>=0.6.0.0
     , these                 ^>=1.2
     , unordered-containers  ^>=0.2.10.0
-    , uuid-types            ^>=1.0.5
     , vector                ^>=0.13.0.0
     , witherable            ^>=0.4.2
 
@@ -233,7 +232,6 @@ test-suite aeson-tests
     , time
     , time-compat
     , unordered-containers
-    , uuid-types
     , vector
 
   if !impl(ghc >=9.0)
